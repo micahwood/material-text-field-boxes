@@ -50,6 +50,22 @@
       border-radius: 0 0 2px 2px;
     }
   }
+  &.mat-input-invalid {
+    .mat-input-underline {
+      background-color: red;
+
+      .mat-input-ripple {
+        visibility: hidden;
+        transform: scaleX(0.5);
+      }
+    }
+  }
+  &.mat-input-invalid.mat-focused {
+    .mat-input-underline .mat-input-ripple {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+  }
 
   .mat-input-subscript-wrapper {
     position: static;
