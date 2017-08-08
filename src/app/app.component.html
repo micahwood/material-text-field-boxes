@@ -32,3 +32,22 @@
 <md-input-container>
   <input mdInput placeholder="no box">
 </md-input-container>
+
+
+<br>
+<md-select placeholder="Favorite food" class="input-box">
+  <md-option *ngFor="let food of foods" [value]="food.value">
+    {{ food.viewValue }}
+  </md-option>
+</md-select>
+
+<br>
+<md-input-container class="input-box">
+  <input mdInput placeholder="State" [mdAutocomplete]="auto">
+</md-input-container>
+
+<md-autocomplete #auto="mdAutocomplete">
+  <md-option *ngFor="let item of [1,2,3,4]" [value]="item">
+    {{ item }}
+  </md-option>
+</md-autocomplete>
