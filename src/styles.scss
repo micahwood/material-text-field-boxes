@@ -2,22 +2,21 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 .input-box {
-  border: 1px solid gray;
-  border-radius: 2px;
-  background-color: #fff;
   margin-bottom: 16px;
-
-  &.ng-invalid.ng-touched {
-    margin-bottom: 16px + 26px;
-  }
 
  .mat-input-wrapper {
     min-height: 48px;
     padding-bottom: 0;
   }
   .mat-input-flex {
+    min-height: 48px;
     padding: 8px 16px 0;
     box-sizing: border-box;
+    border: 1px solid gray;
+    border-radius: 2px;
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
   }
   .mat-input-infix {
     border-top: none;
@@ -41,43 +40,54 @@
   }
 
   .mat-input-underline {
-    bottom: 0;
-    z-index: 10;
+    bottom: 1px;
+    border-radius: 0 0 2px 2px;
+    position: relative;
+    z-index: 1;
+
+    .mat-input-ripple {
+      top: -1px;
+      border-radius: 0 0 2px 2px;
+    }
   }
 
   .mat-input-subscript-wrapper {
-    top: initial;
-    padding: 8px 16px;
-    box-sizing: border-box;
-    margin-top: -1px;
+    position: static;
+    margin-top: -2px;
     border-radius: 0 0 2px 2px;
     line-height: 1;
-  }
-  &.ng-invalid.ng-touched .mat-input-subscript-wrapper {
-    background-color: mistyrose;
 
-    md-error:before {
-      content: '';
-      color: red;
-      font-family: 'inmoment-icon';
+    md-error {
+      padding: 8px 16px;
+      box-sizing: border-box;
+      background-color: mistyrose;
+
+      &:before {
+        content: '';
+        color: red;
+        font-family: 'inmoment-icon';
+      }
+    }
+
+    .mat-input-hint-wrapper {
+      background-color: lightgray;
+      color: gray;
+      line-height: 1;
+      md-hint {
+        padding: 8px 16px;
+        box-sizing: border-box;
+      }
     }
   }
 }
 
 .input-box-disabled {
-  background-color: darkgray;
-  color: gray;
+  .mat-input-flex {
+    background-color: darkgray;
+    color: gray;
+  }
 
   .mat-input-underline {
     display: none;
-  }
-}
-
-.input-box-help-text {
-  margin-bottom: 16px + 26px;
-
-  .mat-input-subscript-wrapper {
-    background-color: lightgray;
-    color: gray;
   }
 }
